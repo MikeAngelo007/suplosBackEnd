@@ -17,6 +17,13 @@
   <?php 
     $data=file_get_contents('data-1.json');
     $informacion=json_decode($data,true);
+
+
+     
+    include_once'funciones.php';
+                    
+    $guardados=consultaItem();
+    
   ?>
   <video src="img/video.mp4" id="vidFondo"></video>
 
@@ -104,20 +111,31 @@
                         <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $item['Precio']?> </h6>
                       </div>
                     </div>
-                    <form action="CRUD.php" method="post">
-                      <input type="hidden" name="action" value="create">
-                      <input type="hidden" name="id" value="<?php echo $item['Id']?>">
-                      <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
-                      <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
-                      <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
-                      <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
-                      <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
-                      <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+                    <?php
 
-                      <div class="botonField">
-                        <input type="submit" class="btn white" value="Guardar" id="submitButton">
-                      </div>
-                    </form>
+                    if(in_array($item['Id'],array_column($guardados,'Id'))){
+                      ?>
+                      <button class="btn green" style="color: white;"><strong>Guardado</strong></button>
+                      <?php
+                    }else{
+                      ?>
+                      <form action="CRUD.php" method="post">
+                        <input type="hidden" name="action" value="create">
+                        <input type="hidden" name="id" value="<?php echo $item['Id']?>">
+                        <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
+                        <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
+                        <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
+                        <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
+                        <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
+                        <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+  
+                        <div class="botonField">
+                          <input type="submit" class="btn white" value="Guardar" id="submitButton">
+                        </div>
+                      </form>
+                      <?php
+                    }
+                    ?>
                     <div class="divider"></div>
                     <?php
                   }
@@ -134,20 +152,31 @@
                         <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $item['Precio']?> </h6>
                       </div>
                     </div>
-                    <form action="CRUD.php" method="post">
-                      <input type="hidden" name="action" value="create">
-                      <input type="hidden" name="id" value="<?php echo $item['Id']?>">
-                      <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
-                      <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
-                      <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
-                      <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
-                      <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
-                      <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+                    <?php
 
-                      <div class="botonField">
-                        <input type="submit" class="btn white" value="Guardar" id="submitButton">
-                      </div>
-                    </form>
+                    if(in_array($item['Id'],array_column($guardados,'Id'))){
+                      ?>
+                      <button class="btn green" style="color: white;"><strong>Guardado</strong></button>
+                      <?php
+                    }else{
+                      ?>
+                      <form action="CRUD.php" method="post">
+                        <input type="hidden" name="action" value="create">
+                        <input type="hidden" name="id" value="<?php echo $item['Id']?>">
+                        <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
+                        <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
+                        <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
+                        <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
+                        <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
+                        <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+  
+                        <div class="botonField">
+                          <input type="submit" class="btn white" value="Guardar" id="submitButton">
+                        </div>
+                      </form>
+                      <?php
+                    }
+                    ?>
                     <div class="divider"></div>
                     <?php
                   }
@@ -164,20 +193,31 @@
                         <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $item['Precio']?> </h6>
                       </div>
                     </div>
-                    <form action="CRUD.php" method="post">
-                      <input type="hidden" name="action" value="create">
-                      <input type="hidden" name="id" value="<?php echo $item['Id']?>">
-                      <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
-                      <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
-                      <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
-                      <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
-                      <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
-                      <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+                    <?php
 
-                      <div class="botonField">
-                        <input type="submit" class="btn white" value="Guardar" id="submitButton">
-                      </div>
-                    </form>
+                    if(in_array($item['Id'],array_column($guardados,'Id'))){
+                      ?>
+                      <button class="btn green" style="color: white;"><strong>Guardado</strong></button>
+                      <?php
+                    }else{
+                      ?>
+                      <form action="CRUD.php" method="post">
+                        <input type="hidden" name="action" value="create">
+                        <input type="hidden" name="id" value="<?php echo $item['Id']?>">
+                        <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
+                        <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
+                        <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
+                        <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
+                        <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
+                        <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+  
+                        <div class="botonField">
+                          <input type="submit" class="btn white" value="Guardar" id="submitButton">
+                        </div>
+                      </form>
+                      <?php
+                    }
+                    ?>
                     <div class="divider"></div>
                     <?php
                   }
@@ -208,20 +248,31 @@
                         <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $item['Precio']?> </h6>
                       </div>
                     </div>
-                    <form action="CRUD.php" method="post">
-                      <input type="hidden" name="action" value="create">
-                      <input type="hidden" name="id" value="<?php echo $item['Id']?>">
-                      <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
-                      <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
-                      <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
-                      <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
-                      <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
-                      <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+                    <?php
 
-                      <div class="botonField">
-                        <input type="submit" class="btn white" value="Guardar" id="submitButton">
-                      </div>
-                    </form>
+                    if(in_array($item['Id'],array_column($guardados,'Id'))){
+                      ?>
+                      <button class="btn green" style="color: white;"><strong>Guardado</strong></button>
+                      <?php
+                    }else{
+                      ?>
+                      <form action="CRUD.php" method="post">
+                        <input type="hidden" name="action" value="create">
+                        <input type="hidden" name="id" value="<?php echo $item['Id']?>">
+                        <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
+                        <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
+                        <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
+                        <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
+                        <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
+                        <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+  
+                        <div class="botonField">
+                          <input type="submit" class="btn white" value="Guardar" id="submitButton">
+                        </div>
+                      </form>
+                      <?php
+                    }
+                    ?>
                     <div class="divider"></div>
                   <?php
                 }
@@ -239,33 +290,31 @@
             <h5>Bienes guardados:</h5>
             <div class="divider"></div>
             <?php 
-            try{
-              require_once('connection.php');
-              $sql = "SELECT * FROM `casas` ";
-              $resultado = $conn->query($sql);
-            }catch(\Exception $e){
-                echo $e->getMesage();
-            }
-            
-            
-            while($itemsGuardados = $resultado->fetch_assoc()){
+            foreach($guardados as $itemGuardado){
               ?>
                     <div class="itemMostrado">
                       <img src="img/home.jpg" alt="Home">
                       <div class="card-stacked">
-                        <h6><strong>Dirección:</strong> <?php echo $itemsGuardados['Direccion']?> </h6>
-                        <h6><strong>Ciudad:</strong> <?php echo $itemsGuardados['Ciudad']?> </h6>
-                        <h6><strong>Telefono:</strong> <?php echo $itemsGuardados['Telefono']?> </h6>
-                        <h6><strong>Codigo postal:</strong> <?php echo $itemsGuardados['Codigo_Postal']?> </h6>
-                        <h6><strong>Tipo:</strong> <?php echo $itemsGuardados['Tipo']?> </h6>
-                        <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $itemsGuardados['Precio']?> </h6>
+                        <h6><strong>Dirección:</strong> <?php echo $itemGuardado['Direccion']?> </h6>
+                        <h6><strong>Ciudad:</strong> <?php echo $itemGuardado['Ciudad']?> </h6>
+                        <h6><strong>Telefono:</strong> <?php echo $itemGuardado['Telefono']?> </h6>
+                        <h6><strong>Codigo postal:</strong> <?php echo $itemGuardado['Codigo_Postal']?> </h6>
+                        <h6><strong>Tipo:</strong> <?php echo $itemGuardado['Tipo']?> </h6>
+                        <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $itemGuardado['Precio']?> </h6>
                       </div>
                     </div>
+                    <form action="CRUD.php" method="post">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="id" value="<?php echo $itemGuardado['Id']?>">
+  
+                        <div class="botonField">
+                          <input type="submit" style="color: white" class="btn red" value="Eliminar" id="submitButton">
+                        </div>
+                      </form>
                     <div class="divider"></div>
               <?php
             }
 
-            $conn->close();
             ?>
           </div>
         </div>

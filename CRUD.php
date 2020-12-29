@@ -18,4 +18,19 @@ if($_POST['action']=='create'){
 
     header("Location: http://localhost/suplos/index.html");
 }
+
+
+if($_POST['action']=='delete'){
+
+    try{
+        require_once('connection.php');
+        $sql = "DELETE FROM casas WHERE Id = ".$_POST['id'];
+        $resultado = $conn->query($sql);
+      }catch(\Exception $e){
+          echo $e->getMesage();
+      }
+
+      $conn->close();
+    header("Location: http://localhost/suplos/index.html");
+}
 ?>
