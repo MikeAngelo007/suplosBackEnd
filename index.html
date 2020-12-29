@@ -39,7 +39,13 @@
               <option value="" selected>Elige una ciudad (Todas)</option>
               <?php foreach($ciudades as $ciudad){
                 ?>
-                <option value="<?php echo $ciudad?>" <?php echo $_POST['ciudad']==$ciudad? 'selected':'' ?>><?php echo $ciudad?></option>
+                <option value="<?php echo $ciudad?>" 
+                <?php 
+                if(!empty($_POST['ciudad'])){
+                  echo $_POST['ciudad']==$ciudad? 'selected':'';
+                  } ?>
+                  >
+                  <?php echo $ciudad?></option>
                 <?php
               }?>
             </select>
@@ -51,7 +57,11 @@
               <option value="">Elige un tipo (Todos)</option>
               <?php foreach($tipos as $tipo){
                 ?>
-                <option value="<?php echo $tipo?>" <?php echo $_POST['tipo']==$tipo? 'selected':'' ?>><?php echo $tipo?></option>
+                <option value="<?php echo $tipo?>" 
+                <?php 
+                if(!empty($_POST['tipo'])){
+                  echo $_POST['tipo']==$tipo? 'selected':'';
+                  } ?>><?php echo $tipo?></option>
                 <?php
               }?>
             </select>
@@ -94,6 +104,20 @@
                         <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $item['Precio']?> </h6>
                       </div>
                     </div>
+                    <form action="CRUD.php" method="post">
+                      <input type="hidden" name="action" value="create">
+                      <input type="hidden" name="id" value="<?php echo $item['Id']?>">
+                      <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
+                      <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
+                      <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
+                      <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
+                      <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
+                      <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+
+                      <div class="botonField">
+                        <input type="submit" class="btn white" value="Guardar" id="submitButton">
+                      </div>
+                    </form>
                     <div class="divider"></div>
                     <?php
                   }
@@ -110,6 +134,20 @@
                         <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $item['Precio']?> </h6>
                       </div>
                     </div>
+                    <form action="CRUD.php" method="post">
+                      <input type="hidden" name="action" value="create">
+                      <input type="hidden" name="id" value="<?php echo $item['Id']?>">
+                      <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
+                      <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
+                      <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
+                      <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
+                      <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
+                      <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+
+                      <div class="botonField">
+                        <input type="submit" class="btn white" value="Guardar" id="submitButton">
+                      </div>
+                    </form>
                     <div class="divider"></div>
                     <?php
                   }
@@ -126,6 +164,20 @@
                         <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $item['Precio']?> </h6>
                       </div>
                     </div>
+                    <form action="CRUD.php" method="post">
+                      <input type="hidden" name="action" value="create">
+                      <input type="hidden" name="id" value="<?php echo $item['Id']?>">
+                      <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
+                      <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
+                      <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
+                      <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
+                      <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
+                      <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+
+                      <div class="botonField">
+                        <input type="submit" class="btn white" value="Guardar" id="submitButton">
+                      </div>
+                    </form>
                     <div class="divider"></div>
                     <?php
                   }
@@ -156,6 +208,20 @@
                         <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $item['Precio']?> </h6>
                       </div>
                     </div>
+                    <form action="CRUD.php" method="post">
+                      <input type="hidden" name="action" value="create">
+                      <input type="hidden" name="id" value="<?php echo $item['Id']?>">
+                      <input type="hidden" name="direccion" value="<?php echo $item['Direccion']?>">
+                      <input type="hidden" name="ciudad" value="<?php echo $item['Ciudad']?>">
+                      <input type="hidden" name="telefono" value="<?php echo $item['Telefono']?>">
+                      <input type="hidden" name="codigoPostal" value="<?php echo $item['Codigo_Postal']?>">
+                      <input type="hidden" name="tipo" value="<?php echo $item['Tipo']?>">
+                      <input type="hidden" name="precio" value="<?php echo $item['Precio']?>">
+
+                      <div class="botonField">
+                        <input type="submit" class="btn white" value="Guardar" id="submitButton">
+                      </div>
+                    </form>
                     <div class="divider"></div>
                   <?php
                 }
@@ -172,6 +238,35 @@
           <div class="tituloContenido card" style="justify-content: center;">
             <h5>Bienes guardados:</h5>
             <div class="divider"></div>
+            <?php 
+            try{
+              require_once('connection.php');
+              $sql = "SELECT * FROM `casas` ";
+              $resultado = $conn->query($sql);
+            }catch(\Exception $e){
+                echo $e->getMesage();
+            }
+            
+            
+            while($itemsGuardados = $resultado->fetch_assoc()){
+              ?>
+                    <div class="itemMostrado">
+                      <img src="img/home.jpg" alt="Home">
+                      <div class="card-stacked">
+                        <h6><strong>Dirección:</strong> <?php echo $itemsGuardados['Direccion']?> </h6>
+                        <h6><strong>Ciudad:</strong> <?php echo $itemsGuardados['Ciudad']?> </h6>
+                        <h6><strong>Telefono:</strong> <?php echo $itemsGuardados['Telefono']?> </h6>
+                        <h6><strong>Codigo postal:</strong> <?php echo $itemsGuardados['Codigo_Postal']?> </h6>
+                        <h6><strong>Tipo:</strong> <?php echo $itemsGuardados['Tipo']?> </h6>
+                        <h6 class="precioTexto"><strong>Precio:</strong> <?php echo $itemsGuardados['Precio']?> </h6>
+                      </div>
+                    </div>
+                    <div class="divider"></div>
+              <?php
+            }
+
+            $conn->close();
+            ?>
           </div>
         </div>
       </div>
